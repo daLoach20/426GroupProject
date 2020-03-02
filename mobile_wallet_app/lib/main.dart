@@ -19,7 +19,17 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.deepPurple,
         accentColor: Colors.deepPurpleAccent,
       ),
-      home: HomeScreen(),
+      // home: HomeScreen(),
+      initialRoute: SplashScreen.id,
+      routes: {
+        HomeScreen.id: (context) => HomeScreen(),
+        SplashScreen.id: (context) => SplashScreen(),
+        SignInScreen.id: (context) => SignInScreen(),
+        RegistrationScreen.id: (context) => RegistrationScreen(),
+        LoadFundsScreen.id: (context) => LoadFundsScreen(),
+        ActivityScreen.id: (context) => ActivityScreen(),
+
+      }
     );
   }
 }
@@ -66,4 +76,65 @@ class RandomWordsState extends State<RandomWords> {
 class RandomWords extends StatefulWidget {
   @override
   RandomWordsState createState() => RandomWordsState();
+}
+
+class SplashScreen extends StatelessWidget {
+
+  static const String id = "LOADING";
+
+  @override
+  Widget build(BuildContext context) {
+    return 
+    GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(HomeScreen.id);
+      },
+      child: 
+      Container(
+        child: Text('Tap Anywhere', style: TextStyle(
+          color: Colors.white,
+        ))
+      ),
+    );
+  }
+}
+
+class SignInScreen extends StatelessWidget {
+  static const String id = "SIGNIN";
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('Sign In')
+    );
+  }
+}
+
+class RegistrationScreen extends StatelessWidget {
+  static const String id = "REGISTER";
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('Register')
+    );
+  }
+}
+
+class LoadFundsScreen extends StatelessWidget {
+  static const String id = "LOADFUNDS";
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('Load Funds')
+    );
+  }
+}
+
+class ActivityScreen extends StatelessWidget {
+  static const String id = "ACTIVITY";
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text("Activity")
+    );
+  }
 }

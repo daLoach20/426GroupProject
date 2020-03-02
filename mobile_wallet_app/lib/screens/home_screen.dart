@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:mobile_wallet_app/main.dart';
 import 'package:mobile_wallet_app/widgets/qr_code.dart';
 import 'package:mobile_wallet_app/widgets/recent_activity_home.dart';
 
@@ -58,7 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.account_balance),
               iconSize: 40.0,
               color: Colors.white,
-              onPressed: (){},
+              onPressed: (){
+                Navigator.of(context).pushNamed(RegistrationScreen.id);
+              },
             ),
           ),
           middle: 
@@ -68,7 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.add_to_home_screen),
               iconSize: 40.0,
               color: Colors.white,
-              onPressed: (){},
+              onPressed: (){
+                Navigator.of(context).pushNamed(LoadFundsScreen.id);
+              },
             ),
           ),
           trailing: 
@@ -78,7 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.call_to_action),
               iconSize: 40.0,
               color: Colors.white,
-              onPressed: (){},
+              onPressed: (){
+                Navigator.of(context).pushNamed(ActivityScreen.id);
+              },
             ),
           ),
         ),
@@ -87,6 +94,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 class HomeScreen extends StatefulWidget {
+
+  static const String id = "HOME";
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
