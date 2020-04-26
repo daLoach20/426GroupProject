@@ -3,9 +3,12 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:mobile_wallet_app/main.dart';
+// import 'package:mobile_wallet_app/main.dart';
 import 'package:mobile_wallet_app/widgets/qr_code.dart';
 import 'package:mobile_wallet_app/widgets/recent_activity_home.dart';
+import 'package:mobile_wallet_app/screens/registration_screen.dart';
+import 'package:mobile_wallet_app/screens/load_funds_screen.dart';
+import 'package:mobile_wallet_app/screens/activity_screen.dart';
 
 class _HomeScreenState extends State<HomeScreen> {
   
