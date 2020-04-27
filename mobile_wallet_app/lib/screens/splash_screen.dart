@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 // import 'package:mobile_wallet_app/main.dart';
 import 'package:mobile_wallet_app/screens/home_screen.dart';
+import 'package:mobile_wallet_app/screens/signin_screen.dart';
 // import 'package:mobile_wallet_app/data/current_session.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class SplashScreen extends StatelessWidget {
     return 
     GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(HomeScreen.id);
+        Navigator.of(context).pushNamed(SignInScreen.id);
       },
       child: 
       Container(
