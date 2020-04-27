@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   topRight: Radius.circular(20),
                 )
               ),
-              child: Column(
+              child: ListView(
                 children: <Widget>[
                   QRCodeReader(),
                   RecentActivityHome()
