@@ -7,6 +7,11 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
+          Container(
+            color: Colors.deepPurple,
+            width: 50,
+            height: 25,
+          ),
           DrawerHeader(
             child: Text(
               'Side menu',
@@ -15,8 +20,8 @@ class NavDrawer extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.deepPurple,
                 image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('lib/assets/dw.jpg'))),
+                    fit: BoxFit.fitHeight,
+                    image: AssetImage('lib/assets/dw.png'))),
           ),
           ListTile(
             leading: Icon(Icons.input),

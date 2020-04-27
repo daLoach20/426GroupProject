@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-getTopBar(context){
+getTopBar(context, _scaffoldKey){
   return AppBar(
         elevation: 0.0,
         title: Text('DigiWallet',
@@ -12,7 +12,7 @@ getTopBar(context){
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: (){
-            Scaffold.of(context).openDrawer();
+            _scaffoldKey.currentState.openDrawer();
           },
         ),
       );
