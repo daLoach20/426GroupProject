@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.deepPurpleAccent,
       ),
       // home: HomeScreen(),
-      initialRoute: SplashScreen.id,
+      initialRoute: SupportScreen.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         SplashScreen.id: (context) => SplashScreen(),
