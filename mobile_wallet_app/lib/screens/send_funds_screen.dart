@@ -6,16 +6,62 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_wallet_app/main.dart';
 // import 'package:mobile_wallet_app/widgets/qr_code.dart';
 // import 'package:mobile_wallet_app/widgets/recent_activity_home.dart';
+import 'package:mobile_wallet_app/widgets/bot_nav_bar.dart';
+import 'package:mobile_wallet_app/widgets/nav_drawer.dart';
 import 'package:mobile_wallet_app/data/current_session.dart';
+// import 'package:mobile_wallet_app/widgets/top_nav_bar.dart';
+
 
 class _SendFundsState extends State<SendFundsScreen> {
 
   DigiSession session = new DigiSession();
+  final GlobalKey<ScaffoldState> _scaffoldKey =  GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("Activity")
+    return Scaffold(
+      key: _scaffoldKey,
+      drawer: NavDrawer(),
+      backgroundColor: Colors.deepPurple,
+      // appBar: getTopBar(context),
+      appBar: AppBar(
+        elevation: 0.0,
+        title: Text('DigiWallet',
+          style: TextStyle(
+            fontSize: 28.0,
+            fontWeight: FontWeight.bold,
+          )
+          ),
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: (){
+            _scaffoldKey.currentState.openDrawer();
+          },
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                )
+              ),
+              child: ListView(
+                children: <Widget>[
+                  // QRCodeReader(),
+                  // RecentActivityHome()
+                ],
+              )
+            ),
+          )],
+      ),
+
+      bottomNavigationBar: 
+      getNavBar(context),
     );
   }
 }
@@ -29,4 +75,8 @@ class SendFundsScreen extends StatefulWidget {
 
   @override
   _SendFundsState createState() => _SendFundsState();
+}
+
+getBox(String sendTo){
+
 }

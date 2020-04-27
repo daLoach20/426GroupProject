@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_wallet_app/main.dart';
 import 'package:mobile_wallet_app/widgets/qr_code.dart';
 import 'package:mobile_wallet_app/widgets/recent_activity_home.dart';
-import 'package:mobile_wallet_app/screens/registration_screen.dart';
-import 'package:mobile_wallet_app/screens/load_funds_screen.dart';
-import 'package:mobile_wallet_app/screens/activity_screen.dart';
+import 'package:mobile_wallet_app/widgets/bot_nav_bar.dart';
+import 'package:mobile_wallet_app/widgets/top_nav_bar.dart';
 import 'package:mobile_wallet_app/data/current_session.dart';
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -21,19 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     session.logIn("admin@admin.net", "password");
     return Scaffold(
       backgroundColor: Colors.deepPurple,
-      appBar: AppBar(
-        elevation: 0.0,
-        title: Text('DigiWallet',
-          style: TextStyle(
-            fontSize: 28.0,
-            fontWeight: FontWeight.bold,
-          )
-          ),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: (){},
-        ),
-      ),
+      appBar: getTopBar(context),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -56,48 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
 
       bottomNavigationBar: 
-      Container(
-        height: 55,
-        color: Colors.deepPurple,
-        child: NavigationToolbar(
-          leading: 
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
-            child: IconButton(
-              icon: Icon(Icons.account_balance),
-              iconSize: 40.0,
-              color: Colors.white,
-              onPressed: (){
-                Navigator.of(context).pushNamed(RegistrationScreen.id);
-              },
-            ),
-          ),
-          middle: 
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-            child: IconButton(
-              icon: Icon(Icons.add_to_home_screen),
-              iconSize: 40.0,
-              color: Colors.white,
-              onPressed: (){
-                Navigator.of(context).pushNamed(LoadFundsScreen.id);
-              },
-            ),
-          ),
-          trailing: 
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
-            child: IconButton(
-              icon: Icon(Icons.call_to_action),
-              iconSize: 40.0,
-              color: Colors.white,
-              onPressed: (){
-                Navigator.of(context).pushNamed(ActivityScreen.id);
-              },
-            ),
-          ),
-        ),
-      ),
+      getNavBar(context),
     );
   }
 }
