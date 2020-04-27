@@ -9,6 +9,7 @@ import 'package:mobile_wallet_app/screens/splash_screen.dart';
 import 'package:mobile_wallet_app/screens/signin_screen.dart';
 import 'package:mobile_wallet_app/screens/registration_screen.dart';
 import 'package:mobile_wallet_app/screens/load_funds_screen.dart';
+import 'package:mobile_wallet_app/screens/send_funds_screen.dart';
 import 'package:mobile_wallet_app/screens/activity_screen.dart';
 import 'package:mobile_wallet_app/screens/settings_screen.dart';
 import 'package:mobile_wallet_app/screens/support_screen.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         RegistrationScreen.id: (context) => RegistrationScreen(),
         LoadFundsScreen.id: (context) => LoadFundsScreen(),
         ActivityScreen.id: (context) => ActivityScreen(),
+        SendFundsScreen.id: (context) => SendFundsScreen()
 
       }
     );

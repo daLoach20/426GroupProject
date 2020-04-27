@@ -1,6 +1,11 @@
+// import 'package:mobile_wallet_app/data/user_data.dart';
+import 'package:mobile_wallet_app/data/current_session.dart';
+
 class ActivityLoader{
 
   static final ActivityLoader _singleton = new ActivityLoader._internal();
+  // Map<int,DigiUser> userList;
+  DigiSession session;
   var activityList = [];
 
   factory ActivityLoader(){
@@ -8,52 +13,16 @@ class ActivityLoader{
   }
 
   ActivityLoader._internal(){
-    var activityString = "Burger King, 14.02, 20200415\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    activityString += "McDonals, 592.17, 20200416\n";
-    this.activityList = activityString.split("\n");
+    this.session = new DigiSession();
+    // this.userList = getStartingUsers();
+    // loadStartingData(this.userList);
+  }
+
+  getActivity(){
+    if (session.user != null){
+      return session.user.activityString.toString().split("\n");
+    }
+    else return [",,"];
   }
 
 }

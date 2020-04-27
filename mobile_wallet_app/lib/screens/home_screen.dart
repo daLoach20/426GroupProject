@@ -9,11 +9,16 @@ import 'package:mobile_wallet_app/widgets/recent_activity_home.dart';
 import 'package:mobile_wallet_app/screens/registration_screen.dart';
 import 'package:mobile_wallet_app/screens/load_funds_screen.dart';
 import 'package:mobile_wallet_app/screens/activity_screen.dart';
+import 'package:mobile_wallet_app/data/current_session.dart';
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  DigiSession session = new DigiSession();
   
   @override
   Widget build(BuildContext context){
+    // test code will have to remove later
+    session.logIn("admin@admin.net", "password");
     return Scaffold(
       backgroundColor: Colors.deepPurple,
       appBar: AppBar(
