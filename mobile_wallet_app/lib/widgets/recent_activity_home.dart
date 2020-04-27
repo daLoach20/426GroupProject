@@ -36,7 +36,7 @@ class _RecentActivityState extends State<RecentActivityHome>{
               Container(
                 padding: EdgeInsets.all(5.0),
                 child: Column(children: <Widget>[
-                  for (var item in activityLoader.activityList) get_row_from_activity(item)
+                  for (var item in activityLoader.getActivity()) get_row_from_activity(item)
                 ],)
               ),
               // for (var item in activityLoader.activityList) Text(foo().toString())

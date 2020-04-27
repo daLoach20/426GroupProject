@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/screens/qr_screen.dart';
-import 'package:mobile_wallet_app/widgets/qr_code.dart';
+// import 'package:mobile_wallet_app/widgets/qr_code.dart';
 
 
 // lol i don't know what I'm doing
