@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/widgets/bot_nav_bar.dart';
 import 'package:mobile_wallet_app/widgets/nav_drawer.dart';
 import 'package:mobile_wallet_app/data/current_session.dart';
+import 'package:mobile_wallet_app/widgets/top_nav_bar.dart';
 // import 'package:mobile_wallet_app/widgets/top_nav_bar.dart';
 
 
@@ -24,21 +25,7 @@ class _SendFundsState extends State<SendFundsScreen> {
       drawer: NavDrawer(),
       backgroundColor: Colors.deepPurple,
       // appBar: getTopBar(context),
-      appBar: AppBar(
-        elevation: 0.0,
-        title: Text('DigiWallet',
-          style: TextStyle(
-            fontSize: 28.0,
-            fontWeight: FontWeight.bold,
-          )
-          ),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: (){
-            _scaffoldKey.currentState.openDrawer();
-          },
-        ),
-      ),
+      appBar: getTopBar(context, _scaffoldKey),
       body: Column(
         children: <Widget>[
           Expanded(
