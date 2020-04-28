@@ -37,7 +37,7 @@ class DigiUser{
     strDate = "${rn.year}${rn.month}${rn.day}";
     if(sending){
       s = "${user.email}, ${-1 * amt}, $strDate\n";
-    } else s = "${user.email}, $amt, ${DateTime.now()}\n";
+    } else s = "${user.email}, $amt, $strDate\n";
     addActivityString(s);
   }
 
@@ -46,7 +46,7 @@ class DigiUser{
     String strDate;
     DateTime rn = DateTime.now();
     strDate = "${rn.year}${rn.month}${rn.day}";
-    s = "${pm.alias}, $amt, ${DateTime.now()}\n";
+    s = "${pm.alias}, $amt, $strDate\n";
     addActivityString(s);
   }
 
