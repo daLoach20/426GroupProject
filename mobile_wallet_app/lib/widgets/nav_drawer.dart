@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_wallet_app/screens/send_funds_screen.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -41,7 +42,9 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.border_color),
             title: Text('Feedback'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              Navigator.of(context).popAndPushNamed(SendFundsScreen.id)
+            },
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),

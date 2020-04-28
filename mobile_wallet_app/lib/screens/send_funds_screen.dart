@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 // import 'package:mobile_wallet_app/main.dart';
 // import 'package:mobile_wallet_app/widgets/qr_code.dart';
 // import 'package:mobile_wallet_app/widgets/recent_activity_home.dart';
@@ -17,9 +18,97 @@ class _SendFundsState extends State<SendFundsScreen> {
 
   DigiSession session = new DigiSession();
   final GlobalKey<ScaffoldState> _scaffoldKey =  GlobalKey<ScaffoldState>();
+  TextEditingController _controller;
+  TextEditingController _amtController;
+  bool enabledReceiver = true;
+
+  _SendFundsState(String sendTo){
+    _controller = new TextEditingController(text: sendTo);
+    if(sendTo != null){
+      enabledReceiver = false;
+    }
+  }
+
+  @override
+  void initState() {
+    if (_controller == null){
+      _controller = new TextEditingController(text: "Who's getting luck?");
+    }
+    _amtController = new TextEditingController(text: "");
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+
+    final emailInput = TextField(
+      enabled: enabledReceiver,
+      obscureText: false,
+      controller: _controller,
+      style: TextStyle(fontFamily: 'Monsterrat', fontSize: 20.0),
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.fromLTRB(20.0,15.0,20.0,15.0),
+        hintText: "Email / Username:",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+    );
+
+    final amountInput = TextField(
+      obscureText: false,
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        WhitelistingTextInputFormatter.digitsOnly
+      ],
+      controller: _amtController,
+      style: TextStyle(fontFamily: 'Monsterrat', fontSize: 20.0),
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          hintText: "0.00",
+          border:
+          OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+    );
+
+    final sendButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(30.0),
+      color: Colors.deepPurple,
+      child: MaterialButton(
+        minWidth: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context){
+              return AlertDialog(
+                content: Stack(
+                  overflow: Overflow.visible,
+                  children: <Widget>[
+                    Text("${_controller.text} was sent ${_amtController.text}")
+                  ],
+                ),
+              );
+            }
+          );
+        },
+        child: Text("Send!",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontFamily: 'Monsterrat', fontSize: 20.0, color: Colors.white, fontWeight: FontWeight.bold)),
+      ),
+    );
+
+    // final registerButton = Material(
+    //   elevation: 5.0,
+    //   borderRadius: BorderRadius.circular(30.0),
+    //   color: Colors.deepPurple,
+    //   child: MaterialButton(
+    //     minWidth: MediaQuery.of(context).size.width,
+    //     padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+    //     onPressed: () {},
+    //     child: Text("Register",
+    //         textAlign: TextAlign.center,
+    //         style: TextStyle(fontFamily: 'Monsterrat', fontSize: 20.0, color: Colors.white, fontWeight: FontWeight.bold)),
+    //   ),
+    // );
+
     return Scaffold(
       key: _scaffoldKey,
       drawer: NavDrawer(),
@@ -39,8 +128,34 @@ class _SendFundsState extends State<SendFundsScreen> {
               ),
               child: ListView(
                 children: <Widget>[
+                  Container(
+                    height: 100,
+                  ),
                   // QRCodeReader(),
                   // RecentActivityHome()
+                  Container(
+                    padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                    child: Text('Sending To:',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      )
+                    ),
+                  ),
+                  emailInput,
+                  Container(
+                    height: 20,
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                    child: Text('Amount', style: TextStyle(
+                      fontSize: 20.0,
+                    )),
+                  ),
+                  amountInput,
+                  Container(
+                    height: 20,
+                  ),
+                  sendButton,
                 ],
               )
             ),
@@ -58,10 +173,10 @@ class SendFundsScreen extends StatefulWidget {
   static const String id = "SENDFUNDS";
   final String sendTo;
 
-  SendFundsScreen({Key key, this.sendTo}) : super(key: key);
+  SendFundsScreen({this.sendTo});
 
   @override
-  _SendFundsState createState() => _SendFundsState();
+  _SendFundsState createState() => _SendFundsState(this.sendTo);
 }
 
 getBox(String sendTo){
