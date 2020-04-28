@@ -82,7 +82,12 @@ class _SendFundsState extends State<SendFundsScreen> {
                 content: Stack(
                   overflow: Overflow.visible,
                   children: <Widget>[
-                    Text("${_controller.text} was sent ${_amtController.text}")
+                    Container(
+                      height: 200,
+                      width: 200,
+                      alignment: Alignment.center,
+                      child: Text("${_controller.text} was sent ${_amtController.text}"),
+                    )
                   ],
                 ),
               );
