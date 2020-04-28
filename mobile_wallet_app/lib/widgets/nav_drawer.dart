@@ -65,7 +65,8 @@ class NavDrawer extends StatelessWidget {
               //   settings: RouteSettings(
               //   name: SignInScreen.id))).then((value) => 
               // Navigator.popUntil(context, ModalRoute.withName(SignInScreen.id)),
-              Navigator.of(context).popUntil((route) => route.isFirst)
+              Navigator.of(context).popUntil((route) => route.isFirst),
+              Navigator.of(context).pushReplacementNamed(SignInScreen.id)
             },
           ),
         ],

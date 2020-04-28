@@ -97,7 +97,9 @@ class _SignInState extends State<SignInScreen> {
       String password = passwordTextInput.text;
       // DigiSession.userList[email] = new DigiUser(name = "blah", email, password);
       if(session.logIn(email, password) == true){
-        Navigator.of(context).pushNamed(HomeScreen.id);
+        emailTextInput.text = "";
+        passwordTextInput.text = "";
+        Navigator.of(context).pushReplacementNamed(HomeScreen.id);
         //dispose();
       }
       else{

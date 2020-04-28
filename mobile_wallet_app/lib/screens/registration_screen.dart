@@ -131,7 +131,7 @@ class RegistrationState extends State<RegistrationScreen> {
         DigiSession.userList[email] = new DigiUser("New User", email, password);
         registerSuccess();
         Future.delayed(const Duration(seconds: 2), () {
-          Navigator.of(context).pushNamed(SplashScreen.id);
+          Navigator.popUntil(context, ModalRoute.withName(SignInScreen.id));
         });
       }
       else{

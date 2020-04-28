@@ -71,7 +71,12 @@ class _SendFundsState extends State<SendFundsScreen> {
           ),
         );
       }
-    );
+    ).then((value) => {
+      _controller.text = "",
+      _amtController.text = "",
+      enabledReceiver = true,
+      Navigator.of(context).pop()
+    });
   }
   
   void failAlert(){
