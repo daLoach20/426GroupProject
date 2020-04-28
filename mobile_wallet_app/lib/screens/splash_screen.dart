@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/screens/home_screen.dart';
 import 'package:mobile_wallet_app/screens/signin_screen.dart';
 
+
 //import 'package:mobile_wallet_app/screens/signin_screen.dart';
 // import 'package:mobile_wallet_app/data/current_session.dart';
 class SplashScreen extends StatefulWidget {
@@ -27,6 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   // Navigator.of(context).pushNamed(SignInScreen.id);
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,

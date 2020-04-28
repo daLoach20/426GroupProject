@@ -11,8 +11,8 @@ class QRCodeReader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          padding: EdgeInsets.all(20),
-          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+          padding: EdgeInsets.only(bottom: 20, left: 20, right: 20),
+          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           // color: Colors.red,
           alignment: Alignment.center,
           // child: Text('QRCode Reader'),

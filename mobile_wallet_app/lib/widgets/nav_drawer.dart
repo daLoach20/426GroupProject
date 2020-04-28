@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/screens/send_funds_screen.dart';
+import 'package:mobile_wallet_app/screens/settings_screen.dart';
+import 'package:mobile_wallet_app/screens/signin_screen.dart';
+import 'package:mobile_wallet_app/screens/support_screen.dart';
+import 'package:mobile_wallet_app/data/current_session.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -15,7 +19,7 @@ class NavDrawer extends StatelessWidget {
           ),
           DrawerHeader(
             child: Text(
-              'Side menu',
+              '',
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
             decoration: BoxDecoration(
@@ -24,32 +28,45 @@ class NavDrawer extends StatelessWidget {
                     fit: BoxFit.fitHeight,
                     image: AssetImage('lib/assets/dw.png'))),
           ),
+          // ListTile(
+          //   leading: Icon(Icons.input),
+          //   title: Text('Welcome'),
+          //   onTap: () => {},
+          // ),
+          // ListTile(
+          //   leading: Icon(Icons.verified_user),
+          //   title: Text('Profile'),
+          //   onTap: () => {Navigator.of(context).pop()},
+          // ),
           ListTile(
-            leading: Icon(Icons.input),
-            title: Text('Welcome'),
-            onTap: () => {},
-          ),
-          ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
-            onTap: () => {Navigator.of(context).pop()},
+            leading: Icon(Icons.arrow_forward),
+            title: Text('Send Funds'),
+            onTap: () => {Navigator.of(context).popAndPushNamed(SendFundsScreen.id)},
           ),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.of(context).popAndPushNamed(SettingsScreen.id)},
           ),
           ListTile(
             leading: Icon(Icons.border_color),
             title: Text('Feedback'),
             onTap: () => {
-              Navigator.of(context).popAndPushNamed(SendFundsScreen.id)
+              Navigator.of(context).popAndPushNamed(SupportScreen.id)
             },
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              new DigiSession().user = null,
+              // Navigator.pushReplacement(context, MaterialPageRoute(
+              //   builder: context,
+              //   settings: RouteSettings(
+              //   name: SignInScreen.id))).then((value) => 
+              // Navigator.popUntil(context, ModalRoute.withName(SignInScreen.id)),
+              Navigator.of(context).popUntil((route) => route.isFirst)
+            },
           ),
         ],
       ),
