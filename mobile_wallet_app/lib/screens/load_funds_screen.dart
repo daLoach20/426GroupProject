@@ -277,7 +277,7 @@ class _LoadFundsState extends State<LoadFundsScreen> {
                   // RecentActivityHome()
                   Container(
                     padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                    child: Text('Sending To:',
+                    child: Text('',
                       style: TextStyle(
                         fontSize: 20.0,
                       )

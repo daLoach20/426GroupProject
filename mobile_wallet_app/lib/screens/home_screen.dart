@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context){
     // test code will have to remove later
-    session.logIn("admin@admin.net", "password");
+    // session.logIn("admin@admin.net", "password");
     // session.logIn("hamiltonde1@jacks.sfasu.edu", "12345");
     return Scaffold(
       backgroundColor: Colors.deepPurple,

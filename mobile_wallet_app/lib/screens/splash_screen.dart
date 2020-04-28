@@ -22,7 +22,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 5),
-        () => Navigator.of(context).pushNamed(SignInScreen.id));
+        // () => Navigator.of(context).popAndPushNamed(SignInScreen.id));
+        () => Navigator.of(context).pushReplacementNamed(SignInScreen.id));
+
   }
 
   // Navigator.of(context).pushNamed(SignInScreen.id);
