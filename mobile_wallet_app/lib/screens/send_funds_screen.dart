@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 // import 'package:mobile_wallet_app/main.dart';
 // import 'package:mobile_wallet_app/widgets/qr_code.dart';
 // import 'package:mobile_wallet_app/widgets/recent_activity_home.dart';
@@ -21,6 +22,7 @@ class _SendFundsState extends State<SendFundsScreen> {
   TextEditingController _controller;
   TextEditingController _amtController;
   bool enabledReceiver = true;
+  final oCcy = new NumberFormat("#,##0.00", "en_US");
 
   _SendFundsState(String sendTo){
     _controller = new TextEditingController(text: sendTo);
@@ -36,6 +38,84 @@ class _SendFundsState extends State<SendFundsScreen> {
     }
     _amtController = new TextEditingController(text: "");
     super.initState();
+  }
+
+  void successAlert(){
+      showDialog(
+        context: context,
+        builder: (BuildContext context){
+        return AlertDialog(
+          content: Stack(
+            overflow: Overflow.visible,
+            children: <Widget>[
+              Container(
+                height: 200,
+                width: 250,
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      height: 10,
+                    ),
+                    Text("${_controller.text}"),
+                    Text("was sent "),
+                    Text("\$${oCcy.format(double.parse(_amtController.text))}"),
+                    Container(
+                      height: 10,
+                    ),
+                  ],
+                )
+              )
+            ],
+          ),
+        );
+      }
+    );
+  }
+  
+  void failAlert(){
+    showDialog(
+        context: context,
+        builder: (BuildContext context){
+        return AlertDialog(
+          content: Stack(
+            overflow: Overflow.visible,
+            children: <Widget>[
+              Container(
+                height: 200,
+                width: 250,
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      height: 10,
+                    ),
+                    Text("Payment failed to send."),
+                    Text("Please check payment details."),
+                    Container(
+                      height: 10,
+                    ),
+                  ],
+                )
+              )
+            ],
+          ),
+        );
+      }
+    );
+  }
+
+  processPayment(){
+    String strRecipient = _controller.text;
+    double dblAmount = double.parse(_amtController.text);
+    if (session.sendFunds(session.user, strRecipient, dblAmount)){
+      successAlert();
+    }
+    else{
+      failAlert();
+    }
   }
 
   @override
@@ -55,9 +135,6 @@ class _SendFundsState extends State<SendFundsScreen> {
     final amountInput = TextField(
       obscureText: false,
       keyboardType: TextInputType.number,
-      inputFormatters: <TextInputFormatter>[
-        WhitelistingTextInputFormatter.digitsOnly
-      ],
       controller: _amtController,
       style: TextStyle(fontFamily: 'Monsterrat', fontSize: 20.0),
       decoration: InputDecoration(
@@ -75,24 +152,7 @@ class _SendFundsState extends State<SendFundsScreen> {
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
-          showDialog(
-            context: context,
-            builder: (BuildContext context){
-              return AlertDialog(
-                content: Stack(
-                  overflow: Overflow.visible,
-                  children: <Widget>[
-                    Container(
-                      height: 200,
-                      width: 200,
-                      alignment: Alignment.center,
-                      child: Text("${_controller.text} was sent ${_amtController.text}"),
-                    )
-                  ],
-                ),
-              );
-            }
-          );
+          processPayment();
         },
         child: Text("Send!",
             textAlign: TextAlign.center,

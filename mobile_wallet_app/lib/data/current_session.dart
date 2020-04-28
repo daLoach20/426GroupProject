@@ -26,4 +26,18 @@ class DigiSession{
     }
     return false;
   }
+
+  sendFunds(DigiUser user, String strRecipient, double dblAmount){
+    DigiUser oRecipient;
+    bool success = true;
+    if(!DigiSession.userList.containsKey(strRecipient)){
+      return false;
+    }
+    if(dblAmount > user.funds) return false;
+    oRecipient = DigiSession.userList[strRecipient];
+    user.funds -= dblAmount;
+    oRecipient.funds += dblAmount;
+    return true;
+  }
+
 }
