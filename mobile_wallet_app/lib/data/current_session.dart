@@ -19,6 +19,9 @@ class DigiSession{
   }
 
   logIn(user, password){
+    if (!DigiSession.userList.containsKey(user)){
+      return false;
+    }
     DigiUser checkUser = DigiSession.userList[user];
     if (checkUser.password == password){
       this.user = checkUser;
