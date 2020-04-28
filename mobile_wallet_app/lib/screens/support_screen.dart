@@ -15,7 +15,7 @@ class SupportScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('Support Page'),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.deepPurple,
           elevation: 0,
         ),
         body: SingleChildScrollView(
@@ -106,7 +106,7 @@ class SupportScreen extends StatelessWidget {
                       child: Text(
                         'https://github.com/thisis/a/fake/link.app.',
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 13.0, color: Colors.green),
+                        style: TextStyle(fontSize: 13.0, color: Colors.deepPurpleAccent),
                       ),
                       onTap: () async {
 
