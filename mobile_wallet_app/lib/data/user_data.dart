@@ -85,7 +85,21 @@ getStartingUsers(){
 }
 
 loadStartingData(Map<String,DigiUser> ul){
-  var activityString = "Burger King, 14.02, 20200415\n";
+  var activityString = "Burger King, -14.02, 20200415\n";
+  activityString += "Walmart, +592.17, 20200416\n";
+  activityString += "McDonalds, -10.16, 20200416\n";
+  activityString += "Taco Bell, -5.37, 20200416\n";
+  activityString += "Mavericks Tickets, -250.17, 20200416\n";
+  activityString += "Total Fitness, -92.23, 20200416\n";
+  activityString += "Panda Express, -10.04, 20200416\n";
+  activityString += "Walmart, +592.17, 20200416\n";
+  activityString += "McDonalds, +592.17, 20200416\n";
+  activityString += "Walmart, +592.17, 20200416\n";
+  activityString += "McDonalds, -10.16, 20200416\n";
+  activityString += "Taco Bell, -5.37, 20200416\n";
+  activityString += "Mavericks Tickets, -250.17, 20200416\n";
+  activityString += "Total Fitness, -92.23, 20200416\n";
+  activityString += "Panda Express, -10.04, 20200416\n";
   activityString += "McDonalds, 592.17, 20200416\n";
   activityString += "McDonalds, 592.17, 20200416\n";
   activityString += "McDonalds, 592.17, 20200416\n";
@@ -97,28 +111,12 @@ loadStartingData(Map<String,DigiUser> ul){
   activityString += "McDonalds, 592.17, 20200416\n";
   activityString += "McDonalds, 592.17, 20200416\n";
   activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
-  activityString += "McDonalds, 592.17, 20200416\n";
+  activityString += "Walmart, +592.17, 20200416\n";
+  activityString += "McDonalds, -10.16, 20200416\n";
+  activityString += "Taco Bell, -5.37, 20200416\n";
+  activityString += "Mavericks Tickets, -250.17, 20200416\n";
+  activityString += "Total Fitness, -92.23, 20200416\n";
+  activityString += "Panda Express, -10.04, 20200416\n";
   activityString += "McDonalds, 592.17, 20200416\n";
   activityString += "McDonalds, 592.17, 20200416\n";
   activityString += "McDonalds, 592.17, 20200416\n";

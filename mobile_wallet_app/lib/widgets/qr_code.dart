@@ -3,7 +3,7 @@ import 'package:mobile_wallet_app/screens/qr_screen.dart';
 // import 'package:mobile_wallet_app/widgets/qr_code.dart';
 
 
-// lol i don't know what I'm doing
+// lol i don't know what I'm doing ----- yeah me either lmao
 class QRCodeReader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
