@@ -42,4 +42,10 @@ class DigiSession{
     return true;
   }
 
+  loadFunds(DigiPaymentMethod pm, double dblAmount){
+    print("$pm.alias $dblAmount");
+    user.funds += dblAmount;
+    user.addBankActivity(pm, dblAmount);
+  }
+
 }
