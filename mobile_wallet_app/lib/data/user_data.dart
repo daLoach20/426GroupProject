@@ -1,4 +1,5 @@
 // import 'dart:collection';
+import 'dart:core';
 
 class DigiUser{
 
@@ -16,10 +17,26 @@ class DigiUser{
     this.email = email;
     this.password = password;
     this.funds = 0;
+    this.activityString = "";
   }
 
   getId(){
     return id;
+  }
+
+  addActivityString(String s){
+    this.activityString += s;
+  }
+
+  addActivity(DigiUser user, double amt, bool sending){
+    String s;
+    String strDate;
+    DateTime rn = DateTime.now();
+    strDate = "${rn.year}${rn.month}${rn.day}";
+    if(sending){
+      s = "${user.email}, ${-1 * amt}, $strDate\n";
+    } else s = "${user.email}, $amt, ${DateTime.now()}\n";
+    addActivityString(s);
   }
 
 }
@@ -98,5 +115,4 @@ loadStartingData(Map<String,DigiUser> ul){
   activityString += "McDonalds, 592.17, 20200416\n";
   var u = ul["admin@admin.net"];
   u.activityString = activityString;
-
 }

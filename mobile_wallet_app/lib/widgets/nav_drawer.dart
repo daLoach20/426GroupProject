@@ -37,6 +37,11 @@ class NavDrawer extends StatelessWidget {
           //   onTap: () => {Navigator.of(context).pop()},
           // ),
           ListTile(
+            leading: Icon(Icons.arrow_forward),
+            title: Text('Send Funds'),
+            onTap: () => {Navigator.of(context).popAndPushNamed(SendFundsScreen.id)},
+          ),
+          ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () => {Navigator.of(context).popAndPushNamed(SettingsScreen.id)},
