@@ -70,7 +70,7 @@ class RegistrationScreen extends StatelessWidget {
                   SizedBox(
                     height: 155.0,
                     child: Image.asset(
-                      "gitignore might be blocking pngs - skip until fixed - assets/SFA-Logo.png",
+                      "lib/assets/SFA-Logo.png",
                       fit: BoxFit.contain,
                     ),
                   ),

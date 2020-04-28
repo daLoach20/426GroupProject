@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_wallet_app/screens/home_screen.dart';
 
 import 'package:mobile_wallet_app/screens/registration_screen.dart';
 import 'package:mobile_wallet_app/screens/load_funds_screen.dart';
@@ -17,7 +18,7 @@ getNavBar(context){
               iconSize: 40.0,
               color: Colors.white,
               onPressed: (){
-                Navigator.of(context).pushNamed(RegistrationScreen.id);
+                Navigator.of(context).pushNamed(HomeScreen.id);
               },
             ),
           ),
