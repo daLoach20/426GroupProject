@@ -6,24 +6,27 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_wallet_app/main.dart';
 import 'package:mobile_wallet_app/screens/home_screen.dart';
 // import 'package:mobile_wallet_app/data/current_session.dart';
-
-class SplashScreen extends StatelessWidget {
-
+class SplashScreen extends StatefulWidget{
   static const String id = "LOADING";
+  @override
+  _SplashScreenState createState()=> new _SplashScreenState();
+
+}
+class _SplashScreenState extends State<SplashScreen> {
+
+
+
+  void initState() {
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
-    return 
-    GestureDetector(
-      onTap: () {
-        Navigator.of(context).pushNamed(HomeScreen.id);
-      },
-      child: 
-      Container(
-        child: Text('Tap Anywhere', style: TextStyle(
-          color: Colors.white,
-        ))
-      ),
+    return Scaffold(
+
     );
+
+
   }
 }
