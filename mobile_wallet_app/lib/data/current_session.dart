@@ -37,6 +37,8 @@ class DigiSession{
     oRecipient = DigiSession.userList[strRecipient];
     user.funds -= dblAmount;
     oRecipient.funds += dblAmount;
+    user.addActivity(oRecipient, dblAmount, true);
+    oRecipient.addActivity(user, dblAmount, false);
     return true;
   }
 
