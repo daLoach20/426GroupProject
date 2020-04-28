@@ -49,8 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(top: 20, bottom: 20),
-                    child: Text("Current Funds: \$${oCcy.format(session.user.funds)}",style: TextStyle(
-                      fontSize: 20,
+                    child: Text("Digi-Cash: \$${oCcy.format(session.user.funds)}",style: TextStyle(
+                      fontSize: 40,
                     )),
                   ),
                   QRCodeReader(),
