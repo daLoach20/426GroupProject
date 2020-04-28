@@ -46,6 +46,8 @@ flutter:
   #    - lib/assets/qr.png
       - lib/assets/qr_pic.jpg
       - lib/assets/digiArt.png
+      - lib/assets/dw.png
+      - lib/assets/qr.png
   #    - lib/assets/dw.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
