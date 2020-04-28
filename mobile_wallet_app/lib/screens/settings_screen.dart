@@ -45,7 +45,7 @@ class SettingsScreen extends StatelessWidget {
           children: <Widget>[
             Card(
               margin: const EdgeInsets.all(8.0),
-              color: Colors.green,
+              color: Colors.deepPurple,
               child: ListTile(
                 title: Text(
                   userName = "Daivd Hamilton" ,
@@ -70,7 +70,7 @@ class SettingsScreen extends StatelessWidget {
                   ListTile(
                     leading: Icon(
                       Icons.lock_outline,
-                      color: Colors.green,
+                      color: Colors.deepPurple,
                     ),
                     title: Text("Change Password"),
                     trailing: Icon(Icons.keyboard_arrow_right),
@@ -81,7 +81,7 @@ class SettingsScreen extends StatelessWidget {
                   ListTile(
                     leading: Icon(
                       Icons.email,
-                      color: Colors.green,
+                      color: Colors.deepPurple,
                     ),
                     title: Text("Change Email Address"),
                     trailing: Icon(Icons.keyboard_arrow_right),
@@ -92,7 +92,7 @@ class SettingsScreen extends StatelessWidget {
                   ListTile(
                     leading: Icon(
                       Icons.phone_android,
-                      color: Colors.green,
+                      color: Colors.deepPurple,
                     ),
                     title: Text("Change Phone Number"),
                     trailing: Icon(Icons.keyboard_arrow_right),
