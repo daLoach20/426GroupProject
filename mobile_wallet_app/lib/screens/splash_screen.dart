@@ -28,8 +28,6 @@ class _SplashScreenState extends State<SplashScreen> {
   // Navigator.of(context).pushNamed(SignInScreen.id);
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
