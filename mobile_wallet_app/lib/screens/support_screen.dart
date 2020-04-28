@@ -23,7 +23,7 @@ class SupportScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
               child: Column(
                 children: [
-                  Image.asset('assets/images/digiArt.png', width: 80, height: 80),
+                  Image.asset('lib/assets/digiArt.png', width: 80, height: 80),
                   SizedBox(height: 20),
                   Text(
                     'Feel free to contact us at one of our contacts: Phone: 111-222-3333, Email: DigiWallet@bus.gov',

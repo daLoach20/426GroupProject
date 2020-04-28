@@ -4,6 +4,7 @@ class DigiSession{
 
   static final DigiSession _singleton = new DigiSession._internal();
   static Map<String,DigiUser> userList;
+  static bool debugMode = true;
   DigiUser user;
 
   var activityList = [];
