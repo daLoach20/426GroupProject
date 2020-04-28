@@ -59,6 +59,7 @@ class SupportScreen extends StatelessWidget {
                   Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                     Column(children: [
                       IconButton(
+                        onPressed: (){},
                         icon: Icon(Icons.star),
                         iconSize: 40,
 
@@ -69,6 +70,7 @@ class SupportScreen extends StatelessWidget {
                     Column(
                       children: [
                         IconButton(
+                          onPressed: (){},
                           icon: Icon(Icons.share),
                           iconSize: 40,
                           color: Colors.green,

@@ -10,6 +10,7 @@ class DigiUser{
   var password;
   var activityString;
   double funds;
+  List<DigiPaymentMethod> paymentMethods;
 
   DigiUser(name, email, password){
     this.id = uuid++;
@@ -18,6 +19,7 @@ class DigiUser{
     this.password = password;
     this.funds = 0;
     this.activityString = "";
+    this.paymentMethods = new List<DigiPaymentMethod>();
   }
 
   getId(){
@@ -35,10 +37,25 @@ class DigiUser{
     strDate = "${rn.year}${rn.month}${rn.day}";
     if(sending){
       s = "${user.email}, ${-1 * amt}, $strDate\n";
-    } else s = "${user.email}, $amt, ${DateTime.now()}\n";
+    } else s = "${user.email}, $amt, $strDate\n";
     addActivityString(s);
   }
 
+  addBankActivity(DigiPaymentMethod pm, double amt){
+    String s;
+    String strDate;
+    DateTime rn = DateTime.now();
+    strDate = "${rn.year}${rn.month}${rn.day}";
+    s = "${pm.alias}, $amt, $strDate\n";
+    addActivityString(s);
+  }
+
+}
+
+class DigiPaymentMethod{
+  String alias;
+  // other data members
+  DigiPaymentMethod(this.alias);
 }
 
 // HashMap map = new HashMap();
@@ -115,4 +132,7 @@ loadStartingData(Map<String,DigiUser> ul){
   activityString += "McDonalds, 592.17, 20200416\n";
   var u = ul["admin@admin.net"];
   u.activityString = activityString;
+  u.paymentMethods.add(new DigiPaymentMethod("Chase Bank"));
+  u.paymentMethods.add(new DigiPaymentMethod("Capital One"));
+  u.paymentMethods.add(new DigiPaymentMethod("CBTx"));
 }

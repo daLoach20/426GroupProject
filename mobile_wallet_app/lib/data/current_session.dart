@@ -19,6 +19,9 @@ class DigiSession{
   }
 
   logIn(user, password){
+    if (!DigiSession.userList.containsKey(user)){
+      return false;
+    }
     DigiUser checkUser = DigiSession.userList[user];
     if (checkUser.password == password){
       this.user = checkUser;
@@ -40,6 +43,12 @@ class DigiSession{
     user.addActivity(oRecipient, dblAmount, true);
     oRecipient.addActivity(user, dblAmount, false);
     return true;
+  }
+
+  loadFunds(DigiPaymentMethod pm, double dblAmount){
+    print("$pm.alias $dblAmount");
+    user.funds += dblAmount;
+    user.addBankActivity(pm, dblAmount);
   }
 
 }

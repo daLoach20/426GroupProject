@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/screens/send_funds_screen.dart';
 import 'package:mobile_wallet_app/screens/settings_screen.dart';
+import 'package:mobile_wallet_app/screens/signin_screen.dart';
 import 'package:mobile_wallet_app/screens/support_screen.dart';
+import 'package:mobile_wallet_app/data/current_session.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -56,7 +58,15 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              new DigiSession().user = null,
+              // Navigator.pushReplacement(context, MaterialPageRoute(
+              //   builder: context,
+              //   settings: RouteSettings(
+              //   name: SignInScreen.id))).then((value) => 
+              // Navigator.popUntil(context, ModalRoute.withName(SignInScreen.id)),
+              Navigator.of(context).popUntil((route) => route.isFirst)
+            },
           ),
         ],
       ),
