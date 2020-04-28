@@ -8,12 +8,14 @@ class DigiUser{
   var email;
   var password;
   var activityString;
+  double funds;
 
   DigiUser(name, email, password){
     this.id = uuid++;
     this.name = name;
     this.email = email;
     this.password = password;
+    this.funds = 0;
   }
 
   getId(){
@@ -38,8 +40,11 @@ getStartingUsers(){
     "admin3@admin.net": u4
   };
 
-  print(u.getId());
-  print(u4.getId());
+  // print(u.getId());
+  // print(u4.getId());
+
+  u.funds = 3.50;
+  u2.funds = 34788.12;
 
   return userList;
 

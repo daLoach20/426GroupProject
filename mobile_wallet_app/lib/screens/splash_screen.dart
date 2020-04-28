@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
     return 
     GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(SignInScreen.id);
+        Navigator.of(context).pushNamed(HomeScreen.id);
       },
       child: 
       Container(
