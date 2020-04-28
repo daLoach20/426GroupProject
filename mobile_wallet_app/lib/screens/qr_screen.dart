@@ -15,7 +15,13 @@ class QRScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.of(context).popAndPushNamed(SendFundsScreen.id, arguments: ["hamiltonde1@jacks.sfasu.edu"]);
+      // Navigator.of(context).popAndPushNamed(SendFundsScreen.id, arguments: "hamiltonde1@jacks.sfasu.edu");
+      print('Delayed action');
+      Navigator.of(context).pop();
+      Navigator.push(
+        context, new MaterialPageRoute(
+          builder: (BuildContext context) => new SendFundsScreen(sendTo:"hamiltonde1@jacks.sfasu.edu")
+          ));
     });
     return Container(
       // child: Text("QR Code")
